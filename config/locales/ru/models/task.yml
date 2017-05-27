@@ -1,0 +1,25 @@
+ru:
+  activerecord:
+    models:
+      tag: Тег
+
+    attributes:
+      tag:
+        name: Имя
+        id: Ид
+        created_at: Создан
+
+    errors:
+      models:
+        tag:
+          attributes:
+            name:
+              blank: Не может быть пустым
+
+  attributes:
+    tag:
+      one: Тег
+      two: Тега
+      many: Теги
+      few: Тегов
+      other: Теггов
