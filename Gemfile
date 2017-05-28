@@ -30,6 +30,7 @@ gem 'simple_form'
 gem "haml-rails", "~> 0.9"
 gem 'devise'
 gem 'faker'
+gem "cocoon"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -49,7 +50,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'shoulda-matchers'
 end
 

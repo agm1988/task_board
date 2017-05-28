@@ -1,4 +1,11 @@
 ru:
+  enums:
+    task:
+      status:
+        todo: В планах на сегодня
+        done: Сделано вчера
+        backlog: Отложена
+
   simple_form:
     "yes": 'Да'
     "no": 'Нет'
