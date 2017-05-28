@@ -6,5 +6,7 @@
   = f.input :email
   = f.input :is_admin
   = f.input :nickname
+  = f.input :password
+  = f.input :password_confirmation
   = f.button :submit, :class => 'btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn btn-default'

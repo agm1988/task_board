@@ -25,6 +25,10 @@ ru:
               blank: Не может быть пустым
             last_name:
               blank: Не может быть пустым
+            password:
+              blank: Не может быть пустым
+            password_confirmation:
+              confirmation: Пароль не совпадают
 
   attributes:
     user:
