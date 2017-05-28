@@ -28,7 +28,7 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'simple_form'
 gem "haml-rails", "~> 0.9"
-# gem 'devise'
+gem 'devise'
 gem 'faker'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

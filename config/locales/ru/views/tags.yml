@@ -1,0 +1,8 @@
+ru:
+  tags:
+    index:
+      title: Теги
+    edit:
+      title: Редактировать Тег
+    create:
+      title: Создать Тег
