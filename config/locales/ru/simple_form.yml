@@ -14,6 +14,13 @@ ru:
     labels:
       tag:
         name: Имя
+      user:
+        first_name: Имя
+        last_name: Фамилия
+        email: E-мейл
+        nickname: Никнейм
+        is_admin: Администратор
+        id: Ид
     # Examples
     # labels:
     #   defaults:

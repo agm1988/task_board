@@ -10,3 +10,16 @@
 %w(feature TODO bug).each do |tag|
   Tag.create(name: tag)
 end
+
+# create Users
+User.create(first_name: 'Админ', last_name: 'Админыч', email: 'admin@admin.com', is_admin: true, nickname: 'bond007')
+
+10.times do |n|
+  User.create(first_name: Faker::Name.unique.first_name,
+              last_name: Faker::Name.unique.last_name,
+              email: "user#{n + 1}@email.com",
+              nickname: Faker::Internet.unique.user_name
+              # password: 11111111,
+              # password_confirmation: 11111111
+  )
+end
