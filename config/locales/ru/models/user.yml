@@ -1,0 +1,35 @@
+ru:
+  activerecord:
+    models:
+      user: Пользователь
+
+    attributes:
+      user:
+        first_name: Имя
+        last_name: Фамилия
+        email: E-мейл
+        nickname: Никнейм
+        is_admin: Администратор
+        id: Ид
+        created_at: Создан
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: Не может быть пустым
+            nickname:
+              blank: Не может быть пустым
+            first_name:
+              blank: Не может быть пустым
+            last_name:
+              blank: Не может быть пустым
+
+  attributes:
+    user:
+      one: Пользователь
+      two: Пользователя
+      many: Пользователи
+      few: Пользователей
+      other: Потльзователи
