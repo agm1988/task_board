@@ -40,6 +40,11 @@ RSpec.describe TagsController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # TagsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  let!(:admin) { create(:user, :admin) }
+
+  before do
+    login_as_user(admin)
+  end
 
   describe "GET #index" do
     it "returns a success response" do
