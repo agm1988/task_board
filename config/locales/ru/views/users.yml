@@ -1,0 +1,8 @@
+ru:
+  users:
+    index:
+      title: Пользователи
+    edit:
+      title: Редактировать Пользователя
+    create:
+      title: Создать Пользователя
