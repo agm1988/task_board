@@ -69,6 +69,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:user_id, :title, tasks_attributes: [:id, :title, :description, :status, :_destroy])
+      params.require(:report).permit(:user_id, :title, tasks_attributes: [:id, :title, :description, :status, :_destroy, tag_ids: []])
     end
 end
