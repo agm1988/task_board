@@ -1,0 +1,9 @@
+%tr
+  %td= link_to report.id, report_path(report)
+  %td= report.user
+  %td= report.title
+  %td=l report.created_at
+  %td
+    = link_to t('helpers.links.edit'), edit_report_path(report), class: 'btn btn-default btn-xs'
+    = link_to t('helpers.links.destroy'), report_path(report), method: :delete,
+    data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-danger'

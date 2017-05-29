@@ -11,6 +11,12 @@
   %br
   = @report.title
 
+%br
+%h4
+  Tasks
+  %ul
+    = render @report.tasks
+
 
 = link_to t('.back', :default => t("helpers.links.back")), reports_path, :class => 'btn btn-default'
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_report_path(@report), :class => 'btn btn-default'

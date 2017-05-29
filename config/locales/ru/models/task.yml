@@ -1,0 +1,34 @@
+ru:
+  activerecord:
+    models:
+      task: Задача
+
+    attributes:
+      task:
+        title: Название
+        description: Описание
+        status: Статус
+        tags: Теги
+        id: Ид
+        created_at: Создан
+
+    errors:
+      models:
+        task:
+          attributes:
+            title:
+              blank: Не может быть пустым
+            description:
+              blank: Не может быть пустым
+            status:
+              blank: Не может быть пустым
+            tags:
+              blank: Не может быть пустым
+
+  attributes:
+    task:
+      one: Задача
+      two: Задачи
+      many: Задач
+      few: Задач
+      other: Задач
