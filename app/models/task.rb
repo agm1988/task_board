@@ -3,7 +3,11 @@ class Task < ActiveRecord::Base
 
   belongs_to :report
   # belongs_to :user, through: :report
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   # enum status: STATUSES
   enum status: [:todo, :done, :backlog]
+
+  accepts_nested_attributes_for :taggings, reject_if: :all_blank, allow_destroy: true
 end

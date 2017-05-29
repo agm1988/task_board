@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require cocoon
+//= require select2
+////= require select2-full
+//= require select2_locale_ru
 //= require_tree .
