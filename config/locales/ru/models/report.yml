@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    models:
+      report: Отчет
+
+    attributes:
+      report:
+        title: Назване
+        user: Автор
+        id: Ид
+        created_at: Создан
+
+    errors:
+      models:
+        report:
+          attributes:
+            title:
+              blank: Не может быть пустым
+
+  attributes:
+    report:
+      one: Отчет
+      two: Отчета
+      many: Отчеты
+      few: Отчетов
+      other: Отчеты

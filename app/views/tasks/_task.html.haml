@@ -1,0 +1,22 @@
+%li
+  .header
+    %h5
+      = link_to(task.title, task_path(task))
+
+    %p
+      = task.description
+
+    %hr
+
+    -#= simple_form_for @form, url: create_comment_thing_path(@thing) do |f|
+    -#  = f.input :body
+    -#  = f.collection_radio_buttons :weight, *@form.weights
+    -#  = f.fields_for :user do |u|
+    -#    = u.input :email
+    -#    = f.button :submit
+    -#
+    -#= @form.inspect
+    -#
+    -#-#= concept "comment/cell", collection: @thing.comments.limit(10), last: @thing.comments.last
+    -#
+    -#= concept("comment/cell/grid", @thing, page: params[:page])

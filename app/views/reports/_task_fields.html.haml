@@ -7,4 +7,5 @@
       -## TODO: use simple_form enums translation
       = f.input :status, collection: Task::STATUSES, label_method: -> (task) { t("enums.task.status.#{task}") }, include_blank: false
       = f.association :tags, collection: Tag.all, input_html: { class: 'task-tags-select', multiple: true }
+
       = link_to_remove_association "remove task", f, { class: 'btn-xs btn-danger' }

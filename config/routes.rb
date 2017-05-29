@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks, only: [:show, :edit, :update, :destroy]
   resources :reports
   # devise_for :users
   devise_for :users, controllers: { sessions: 'users/sessions',

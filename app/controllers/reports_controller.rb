@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
   # GET /reports/new
   def new
     @report = Report.new
+    @report.tasks.build
   end
 
   # GET /reports/1/edit
