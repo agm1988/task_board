@@ -1,0 +1,8 @@
+ru:
+  tasks:
+    index:
+      title: Задачи
+    edit:
+      title: Редактировать задачу
+    create:
+      title: Создать задачу
