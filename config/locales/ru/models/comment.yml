@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    models:
+      commnet: Комментарий
+
+    attributes:
+      comment:
+        user_id: Автор
+        body: Текст
+        id: Ид
+        created_at: Создан
+
+    errors:
+      models:
+        comment:
+          attributes:
+            body:
+              blank: Не может быть пустым
+
+  attributes:
+    comment:
+      one: Комментарий
+      two: Комментария
+      many: Комментариев
+      few: Комментариев
+      other: Комментарии

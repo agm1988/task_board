@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :tasks, only: [:show, :edit, :update, :destroy]
-  resources :reports
+  resources :tasks, only: [:show, :edit, :update, :destroy] do
+    resources :comments, only: [:create, :destroy]
+  end
+  resources :reports do
+    resources :comments, only: [:create, :destroy]
+  end
   # devise_for :users
   devise_for :users, controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations',

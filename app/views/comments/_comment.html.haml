@@ -1,0 +1,8 @@
+.comment.well
+  %p.strong
+    = comment.user
+  %p
+    = comment.body
+  %p.pull-right
+    = link_to t('destroy'), [@commentable, comment], method: :delete,
+    data: { confirm: t('confirm') }, class: 'btn-xs btn-danger'

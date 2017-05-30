@@ -1,0 +1,10 @@
+ru:
+  reports:
+    index:
+      title: Отчеты
+    edit:
+      title: Редактировать отчет
+    create:
+      title: Создать отчет
+    show:
+      title: Просмотр отчета
