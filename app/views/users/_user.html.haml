@@ -1,0 +1,14 @@
+%tr
+  %td= link_to user.id, user_path(user)
+  %td= user.first_name
+  %td= user.last_name
+  %td= user.email
+  %td= user.is_admin
+  %td= user.nickname
+  %td=l user.created_at
+  %td
+    = link_to t('edit'), edit_user_path(user), class: 'btn btn-default btn-xs'
+  %td
+    - if policy(user).destroy?
+      = link_to t('destroy'), user_path(user), method: :delete,
+      data: { confirm: t('confirm') }, class: 'btn btn-xs btn-danger'

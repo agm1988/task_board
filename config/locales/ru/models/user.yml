@@ -27,6 +27,7 @@ ru:
               blank: Не может быть пустым
             password:
               blank: Не может быть пустым
+              too_short: Пароль слишком короткий
             password_confirmation:
               confirmation: Пароль не совпадают
 

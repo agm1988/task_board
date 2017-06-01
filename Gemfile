@@ -33,6 +33,7 @@ gem 'faker'
 gem "cocoon"
 gem "select2-rails"
 gem 'bootstrap-select-rails'
+gem "pundit"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

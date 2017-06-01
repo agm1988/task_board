@@ -15,4 +15,18 @@ class User < ActiveRecord::Base
   def name
     "#{first_name[0]}. #{last_name}"
   end
+
+  def skip_notifications!
+    @skip = true
+  end
+
+  def email_changed?
+    return false if @skip
+    super
+  end
+
+  def encrypted_password_changed?
+    return false if @skip
+    super
+  end
 end
