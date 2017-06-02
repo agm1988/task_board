@@ -1,4 +1,3 @@
 = simple_form_for([@commentable, @comment], html: { class: 'form-horizontal' }) do |f|
-  = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
   = f.input :body
   = f.button :submit, t('.comment'), class: 'btn-primary'
