@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
   before_action :find_commentable, only: [:create, :destroy]
 
+  after_action :verify_authorized
+
   def create
-    @comment = @commentable.comments.new(comment_params)
+    authorize Comment
+    @comment = @commentable.comments.new(user_id: current_user.id, body: params[:comment][:body])
 
     if @comment.save
       redirect_to @commentable
@@ -13,16 +16,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find(params[:id]).destroy
+    comment = Comment.find(params[:id])
+    authorize comment
+    comment.destroy
 
     redirect_to @commentable
   end
 
   private
-
-  def comment_params
-    params.require(:comment).permit(:user_id, :body)
-  end
 
   def find_commentable
     klass = [Task, Report].detect { |c| params["#{c.name.underscore}_id"] }

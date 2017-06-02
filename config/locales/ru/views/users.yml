@@ -2,6 +2,7 @@ ru:
   users:
     index:
       title: Пользователи
+      new: Создать пользователя
     edit:
       title: Редактировать Пользователя
     create:

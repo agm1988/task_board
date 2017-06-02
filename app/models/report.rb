@@ -7,5 +7,5 @@ class Report < ActiveRecord::Base
 
   accepts_nested_attributes_for :tasks, reject_if: :all_blank, allow_destroy: true
 
-  validates :title, :tasks, presence: true
+  validates :title, :tasks, :user, presence: true
 end

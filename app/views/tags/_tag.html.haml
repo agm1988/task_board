@@ -1,0 +1,10 @@
+%tr
+  %td= link_to tag.id, tag_path(tag)
+  %td= tag.name
+  %td=l tag.created_at
+  %td
+    - if policy(tag).edit?
+      = link_to t('edit'), edit_tag_path(tag), class: 'btn btn-default btn-xs'
+    - if policy(tag).destroy?
+      = link_to t('destroy'), tag_path(tag), method: :delete,
+      data: { confirm: t('confirm') }, class: 'btn btn-xs btn-danger'

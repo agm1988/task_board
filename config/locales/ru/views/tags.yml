@@ -2,6 +2,8 @@ ru:
   tags:
     index:
       title: Теги
+      actions: Действия
+      new: Создать Тэг
     edit:
       title: Редактировать Тег
     create:
