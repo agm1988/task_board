@@ -1,16 +1,27 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
+  after_action :verify_authorized
+  after_action :verify_policy_scoped, only: :index
+
+  def index
+    authorize Task
+    @tasks = policy_scope(Task)
+  end
+
   def show
+    authorize @task
     @commentable = @task
     @comment = Comment.new
   end
 
   def edit
+    authorize @task
   end
 
   def update
-    if @task.update(task_params)
+    authorize @task
+    if @task.update(permitted_attributes(@task))
       redirect_to @task, notice: 'Task was successfully updated.'
     else
       render :edit
@@ -18,6 +29,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    authorize @task
     @report = @task.report
     @task.destroy
 
@@ -28,10 +40,5 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def task_params
-    params.require(:task).permit(:title, :description, :status)
   end
 end

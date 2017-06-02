@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   STATUSES = %i(todo done backlog).freeze
 
   belongs_to :report
-  # belongs_to :user, through: :report
+  has_one :author, through: :report, foreign_key: :user_id, source: :user
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_many :comments, as: :commentable, dependent: :destroy
