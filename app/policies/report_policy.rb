@@ -25,7 +25,7 @@ class ReportPolicy < ApplicationPolicy
   end
 
   def update?
-    user.is_admin? || report_author?
+    can_be_edited? && (user.is_admin? || report_author?)
   end
 
   def edit?
@@ -33,7 +33,11 @@ class ReportPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.is_admin? || report_author?
+    can_be_edited? && (user.is_admin? || report_author?)
+  end
+
+  def mark_as_reported?
+    record.draft? && report_author?
   end
 
   def scope
@@ -42,6 +46,10 @@ class ReportPolicy < ApplicationPolicy
 
   def report_author?
     user.id == record.user_id
+  end
+
+  def can_be_edited?
+    record.draft?
   end
 
   class Scope
@@ -53,11 +61,13 @@ class ReportPolicy < ApplicationPolicy
     end
 
     def resolve
-      if user.is_admin?
-        scope.all
-      else
-        scope.where(user_id: user.id)
-      end
+      # if user.is_admin?
+      #   scope.all
+      # else
+      #   scope.where(user_id: user.id)
+      # end
+
+      scope.all
     end
   end
 end

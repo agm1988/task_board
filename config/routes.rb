@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   resources :reports do
     resources :comments, only: [:create, :destroy]
+    get :mark_as_reported, on: :member
   end
   # devise_for :users
   devise_for :users, controllers: { sessions: 'users/sessions',

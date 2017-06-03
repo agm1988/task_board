@@ -2,9 +2,12 @@ ru:
   reports:
     index:
       title: Отчеты
+      new: Создать отчет
     edit:
       title: Редактировать отчет
     create:
       title: Создать отчет
     show:
       title: Просмотр отчета
+      form_report: Сформировать отчет
+      report_status_title: Статус отчета
