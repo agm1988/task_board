@@ -8,7 +8,7 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    can_be_edited?
   end
 
   def edit?
@@ -16,11 +16,15 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.author == user
+    can_be_edited? && record.author == user
   end
 
   def scope
     Pundit.policy_scope!(user, record.class)
+  end
+
+  def can_be_edited?
+    record.report.draft?
   end
 
   class Scope

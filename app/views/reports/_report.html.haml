@@ -2,8 +2,11 @@
   %td= report.id
   %td= report.user
   %td= link_to(report.title, report_path(report))
+  %td= t("enums.report.status.#{report.status}")
   %td=l report.created_at
   %td
-    = link_to t('helpers.links.edit'), edit_report_path(report), class: 'btn btn-default btn-xs'
-    = link_to t('helpers.links.destroy'), report_path(report), method: :delete,
-    data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-danger'
+    - if policy(report).edit?
+      = link_to t('edit'), edit_report_path(report), class: 'btn btn-default btn-xs'
+    - if policy(report).destroy?
+      = link_to t('destroy'), report_path(report), method: :delete,
+      data: { confirm: t('confirm') }, class: 'btn btn-xs btn-danger'

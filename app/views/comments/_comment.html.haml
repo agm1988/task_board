@@ -1,8 +1,10 @@
-.comment.well
+-## TODO: use anchor in emails to show new comment
+.comment.well{id: "comment_#{comment.id}"}
   %p.strong
     = comment.user
   %p
     = comment.body
   %p.pull-right
-    = link_to t('destroy'), [@commentable, comment], method: :delete,
-    data: { confirm: t('confirm') }, class: 'btn-xs btn-danger'
+    - if policy(comment).destroy?
+      = link_to t('destroy'), [@commentable, comment], method: :delete,
+      data: { confirm: t('confirm') }, class: 'btn-xs btn-danger'

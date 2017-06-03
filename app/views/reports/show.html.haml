@@ -1,5 +1,8 @@
 .page-header
   %h1=t('.title')
+  %h3
+    =t('.report_status_title')
+    = t("enums.report.status.#{@report.status}")
 
 %p
   %strong= Report.human_attribute_name(:user_id) + ':'
@@ -17,9 +20,18 @@
     = render @report.tasks
 
 
-= link_to t('.back', :default => t("helpers.links.back")), reports_path, :class => 'btn btn-default'
-= link_to t('.edit', :default => t("helpers.links.edit")), edit_report_path(@report), :class => 'btn btn-default'
-= link_to t('.destroy', :default => t("helpers.links.destroy")), report_path(@report), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+= link_to t('.back'), reports_path, class: 'btn btn-default'
+
+- if policy(@report).edit?
+  = link_to t('.edit'), edit_report_path(@report), class: 'btn btn-default'
+
+- if policy(@report).destroy?
+  = link_to t('.destroy'), report_path(@report), method: :delete,
+  data: { confirm: t('.confirm') }, class: 'btn btn-danger'
+
+- if policy(@report).mark_as_reported?
+  = link_to t('.form_report'), mark_as_reported_report_path(@report),
+  data: { confirm: t('.confirm') }, class: 'btn btn-danger'
 
 -## TODO: dry it
 %h5.strong

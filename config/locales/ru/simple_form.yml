@@ -5,6 +5,10 @@ ru:
         todo: В планах на сегодня
         done: Сделано вчера
         backlog: Отложена
+    report:
+      status:
+        draft: Черновик
+        reported: Подтверджен
 
   simple_form:
     "yes": 'Да'

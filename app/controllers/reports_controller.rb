@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: [:show, :edit, :update, :destroy, :mark_as_reported]
 
   after_action :verify_authorized
   after_action :verify_policy_scoped, only: :index
@@ -77,6 +77,17 @@ class ReportsController < ApplicationController
       format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def mark_as_reported
+    authorize @report
+    if @report.may_report? && @report.report!
+      flash[:success] = 'Reported successfully'
+    else
+      flash[:error] = 'Could not be reported'
+    end
+
+    redirect_to @report
   end
 
   private

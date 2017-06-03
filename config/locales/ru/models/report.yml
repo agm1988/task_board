@@ -6,7 +6,8 @@ ru:
     attributes:
       report:
         title: Назване
-        user: Автор
+        user_id: Автор
+        status: Статус
         id: Ид
         created_at: Создан
 
