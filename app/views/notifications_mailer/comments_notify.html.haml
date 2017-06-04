@@ -1,0 +1,11 @@
+%h1= t('.title', report_title: @report.title)
+
+- if @report_comments.any?
+  %h3
+    = t('.report_comments')
+  = render partial: 'notifications_mailer/comment', collection: @report_comments
+
+- if @task_comments.any?
+  %h3
+    = t('.task_comments')
+  = render partial: 'notifications_mailer/comment', collection: @task_comments

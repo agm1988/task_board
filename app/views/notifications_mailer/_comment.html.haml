@@ -1,0 +1,5 @@
+%strong= comment.user
+%p= comment.body
+%p
+  = t('.review_html', link: link_to(t('.link_here_html'), comment_url_with_anchor(comment)))
+%hr

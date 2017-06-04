@@ -21,6 +21,8 @@ module Taskboard
     # config.time_zone = 'Europe/Kiev'
     config.active_record.default_timezone = :utc
 
+    config.autoload_paths += %W(#{Rails.root}/lib)
+
     config.i18n.available_locales = [:ru, :ua, :en]
     config.i18n.default_locale = :ru
 

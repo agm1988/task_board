@@ -6,6 +6,7 @@ class Report < ActiveRecord::Base
   # TODO: mask as deleted dependent records
   has_many :tasks, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :task_comments, through: :tasks, source: :comments
 
   enum status: [:draft, :reported]
 
