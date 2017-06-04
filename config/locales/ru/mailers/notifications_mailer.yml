@@ -1,0 +1,7 @@
+ru:
+  notifications_mailer:
+    report_reported:
+      title: 'Пользователь: %{user_name}, сформировал отчет: %{report_title}'
+      todo_tasks: Задачи на сегодня
+      done_tasks: Сделанны вчера
+      backlog_tasks: Отложенные задачи
