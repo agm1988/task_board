@@ -36,6 +36,7 @@ gem 'bootstrap-select-rails'
 gem "pundit"
 gem "aasm"
 gem "sidekiq"
+gem "sidekiq-scheduler"
 # gem 'sinatra', require: nil
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -15,6 +15,8 @@
   -## TODO: move to presenter
   = t("enums.task.status.#{@task.status}")
 
+%p= link_to(t('.back_to_report'), report_path(id: @task.report_id))
+
 - if policy(@task).edit?
   = link_to t('edit'), edit_task_path(@task), class: 'btn btn-default'
 - if policy(@task).destroy?

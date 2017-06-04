@@ -5,9 +5,12 @@ class CommentsController < ApplicationController
 
   def create
     authorize Comment
-    @comment = @commentable.comments.new(user_id: current_user.id, body: params[:comment][:body])
+    result = CommentService.run(commentable: @commentable,
+                                author: current_user,
+                                comment: params[:comment][:body])
 
-    if @comment.save
+    @comment = result.value
+    if result.some?
       redirect_to @commentable
     else
       instance_variable_for_error_render

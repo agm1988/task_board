@@ -1,4 +1,8 @@
 class NotificationsMailer < ApplicationMailer
+  helper NotificationsMailerHelper
+
+  # TODO: in env variables or in secrets.yml
+  ADMIN_EMAILS = ENV['admin_emails'] || %w(admin@admin.com).freeze
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -9,6 +13,15 @@ class NotificationsMailer < ApplicationMailer
     @report = Report.includes(:tasks, :user).find(report_id)
     @user = @report.user
 
-    mail to: "to@example.org"
+    mail(to: ADMIN_EMAILS, subject: t('.subject'))
+  end
+
+  # TODO: notify everybody except commenter
+  def comments_notify(report_id, report_comemnts, task_comments)
+    @report = Report.find(report_id)
+    @report_comments = report_comemnts
+    @task_comments = task_comments
+
+    mail(to: ADMIN_EMAILS, subject: t('.subject'))
   end
 end

@@ -9,3 +9,8 @@ development:
 :queues:
   - default
   - mailers
+
+:schedule:
+  comments_check:
+    cron: '0 * * * * *'   # Runs once per minute
+    class: CheckNotifiableCommentsRunner
