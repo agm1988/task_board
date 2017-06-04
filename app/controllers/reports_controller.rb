@@ -81,6 +81,7 @@ class ReportsController < ApplicationController
 
   def mark_as_reported
     authorize @report
+    Notifications::ReportReportedJob.perform_async(@report.id)
     if @report.may_report? && @report.report!
       flash[:success] = 'Reported successfully'
     else
@@ -91,13 +92,7 @@ class ReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])
     end
-
-    # # Never trust parameters from the scary internet, only allow the white list through.
-    # def report_params
-    #   params.require(:report).permit(:user_id, :title, tasks_attributes: [:id, :title, :description, :status, :_destroy, tag_ids: []])
-    # end
 end

@@ -1,0 +1,13 @@
+%h1= t('.title', user_name: @user, report_title: @report.title)
+
+= render partial: 'notifications_mailer/tasks_block', locals: { title: t('.todo_tasks'), tasks: @report.tasks.todo }
+
+%h3
+  = t('.done_tasks')
+= render partial: 'notifications_mailer/task', collection: @report.tasks.done
+%hr
+
+%h3
+  = t('.backlog_tasks')
+= render partial: 'notifications_mailer/task', collection: @report.tasks.backlog
+%hr

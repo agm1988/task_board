@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   resources :tasks, only: [:show, :edit, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
@@ -14,7 +16,12 @@ Rails.application.routes.draw do
   resources :users
   resources :tags
 
-  root to: 'users#index'
+  # TODO: move to constraint
+  authenticate :user, lambda { |u| u.is_admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  root to: 'reports#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
