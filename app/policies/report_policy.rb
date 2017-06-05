@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportPolicy < ApplicationPolicy
   def permitted_attributes
     # disallow to update user_id for existing records

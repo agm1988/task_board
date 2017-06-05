@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class CommentService
   def self.run(commentable:, author:, comment:)
     # TODO: try to rewrite this
     report = case commentable
-               when Report
-                 commentable
-               when Task
-                 commentable.report
+             when Report
+               commentable
+             when Task
+               commentable.report
              end
 
     flag = !report.draft?

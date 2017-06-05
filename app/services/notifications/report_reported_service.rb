@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Notifications
   class ReportReportedService
     def self.run(report_id)

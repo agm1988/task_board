@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class UserPolicy < ApplicationPolicy
   def permitted_attributes
     if user.is_admin?
-      [:first_name, :last_name, :email, :is_admin, :nickname, :work_start_time, :password, :password_confirmation]
+      %i[first_name last_name email is_admin nickname work_start_time password password_confirmation]
     elsif user == record
-      [:first_name, :last_name, :email, :nickname, :work_start_time, :password, :password_confirmation]
+      %i[first_name last_name email nickname work_start_time password password_confirmation]
     end
   end
 

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy, :mark_as_reported]
+  before_action :set_report, only: %i[show edit update destroy mark_as_reported]
 
   after_action :verify_authorized
   after_action :verify_policy_scoped, only: :index
@@ -8,7 +10,7 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     authorize Report
-    @reports = policy_scope(Report)
+    @reports = policy_scope(Report).eager_load(:user)
   end
 
   # GET /reports/1
@@ -92,7 +94,8 @@ class ReportsController < ApplicationController
   end
 
   private
-    def set_report
-      @report = Report.find(params[:id])
-    end
+
+  def set_report
+    @report = Report.find(params[:id])
+  end
 end

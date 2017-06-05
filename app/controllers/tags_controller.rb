@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TagsController < ApplicationController
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag, only: %i[show edit update destroy]
 
   after_action :verify_authorized
   after_action :verify_policy_scoped, only: :index
@@ -72,7 +74,8 @@ class TagsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
   def set_tag
     @tag = Tag.find(params[:id])
   end
