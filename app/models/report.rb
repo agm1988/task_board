@@ -19,7 +19,7 @@ class Report < ActiveRecord::Base
     state :reported
 
     event :report do
-      transitions from: :draft, to: :reported
+      transitions from: :draft, to: :reported, success: proc { update(reported_at: Time.zone.now.utc) }
     end
   end
 end

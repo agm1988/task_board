@@ -14,3 +14,6 @@ development:
   comments_check:
     cron: '0 * * * * *'   # Runs once per minute
     class: CheckNotifiableCommentsRunner
+  report_reminder:
+    cron: '*/20 * * * *'   # Runs once 20 per minute
+    class: CheckUsersForMissingReportsRunner

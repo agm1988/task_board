@@ -1,9 +1,9 @@
 class UserPolicy < ApplicationPolicy
   def permitted_attributes
     if user.is_admin?
-      [:first_name, :last_name, :email, :is_admin, :nickname, :password, :password_confirmation]
+      [:first_name, :last_name, :email, :is_admin, :nickname, :work_start_time, :password, :password_confirmation]
     elsif user == record
-      [:first_name, :last_name, :email, :nickname, :password, :password_confirmation]
+      [:first_name, :last_name, :email, :nickname, :work_start_time, :password, :password_confirmation]
     end
   end
 

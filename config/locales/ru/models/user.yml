@@ -9,6 +9,7 @@ ru:
         last_name: Фамилия
         email: E-мейл
         nickname: Никнейм
+        work_start_time: Время начала работы (UTC)
         is_admin: Администратор
         id: Ид
         created_at: Создан
@@ -20,6 +21,8 @@ ru:
             email:
               blank: Не может быть пустым
             nickname:
+              blank: Не может быть пустым
+            work_start_time:
               blank: Не может быть пустым
             first_name:
               blank: Не может быть пустым

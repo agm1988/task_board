@@ -53,7 +53,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :test do
