@@ -9,8 +9,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, :last_name, :email, :nickname, presence: true
+  validates :first_name, :last_name, :email, :nickname, :work_start_time, presence: true
   validates :email, :nickname, uniqueness: true
+
+  # TODO: think on sql query
+  # scope :without_todays_report, (lambda do
+  #   joins(:reports)
+  #     .where("reports.id = (SELECT MAX(reports.id) FROM reports \
+  #         WHERE reports.user_id = users.id AND reports.status = 1)")
+  #     .where('CAST(reports.reported_at AS time) < CAST(users.work_start_time AS time)')
+  #     .group('users.id')
+  #     end)
 
   def name
     "#{first_name[0]}. #{last_name}"

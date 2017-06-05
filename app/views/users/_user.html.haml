@@ -1,7 +1,7 @@
 %tr
-  %td= link_to user.id, user_path(user)
-  %td= user.first_name
-  %td= user.last_name
+  %td= user.id
+  %td= link_to(user.first_name, user_path(user))
+  %td= link_to(user.last_name, user_path(user))
   %td= user.email
   %td= user.is_admin
   %td= user.nickname

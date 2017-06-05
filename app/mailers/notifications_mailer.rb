@@ -24,4 +24,11 @@ class NotificationsMailer < ApplicationMailer
 
     mail(to: ADMIN_EMAILS, subject: t('.subject'))
   end
+
+  def user_report_reminder(user)
+    @user = user
+    @till_time = Time.zone.now.utc.change(min: user.work_start_time.min)
+
+    mail(to: @user.email, subject: t('.subject'))
+  end
 end

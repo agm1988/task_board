@@ -14,3 +14,7 @@ ru:
     comment:
       review_html: 'Для просмотра комментария можете перейти по ссылке %{link}'
       link_here_html: Перейти к комментарию
+    user_report_reminder:
+      subject: Необходимо сформировать отчет
+      title: 'Здравствуйте, %{user_name}, напоминаем.'
+      main_text: 'Вам необходимо сформирвоать отчет до %{till_time}'
