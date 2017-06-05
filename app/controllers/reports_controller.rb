@@ -17,7 +17,6 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
     authorize @report
-
     @commentable = @report
     @comment = Comment.new
   end
@@ -96,6 +95,6 @@ class ReportsController < ApplicationController
   private
 
   def set_report
-    @report = Report.find(params[:id])
+    @report = Report.includes(tasks: [:tags], comments: [:user, :commentable]).find(params[:id])
   end
 end
