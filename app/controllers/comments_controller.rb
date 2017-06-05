@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
+    comment = Comment.includes(:user, :commentable).find(params[:id])
     authorize comment
     comment.destroy
 
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   def find_commentable
     klass = [Task, Report].detect { |c| params["#{c.name.underscore}_id"] }
 
-    @commentable = klass.find(params["#{klass.name.underscore}_id"])
+    @commentable = klass.includes(comments: [:user, :commentable]).find(params["#{klass.name.underscore}_id"])
   end
 
   def instance_variable_for_error_render

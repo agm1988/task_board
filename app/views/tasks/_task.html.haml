@@ -5,6 +5,9 @@
 
     %p
       = task.description
+    %strong
+      -## TODO: move to presenter
+      = task.tags.map(&:name).join(', ')
     %hr
 
     -#= simple_form_for @form, url: create_comment_thing_path(@thing) do |f|
