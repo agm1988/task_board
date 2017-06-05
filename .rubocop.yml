@@ -47,3 +47,7 @@ Metrics/ModuleLength:
 
 Metrics/PerceivedComplexity:
   Max: 12
+
+Metrics/BlockLength:
+  max: 25
+  ExcludedMethods: ['describe', 'context']
