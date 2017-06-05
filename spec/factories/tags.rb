@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :tag do
-    name "MyString"
+    sequence(:name) { Faker::App.unique.name }
   end
 end

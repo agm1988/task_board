@@ -233,7 +233,7 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe '#update' do
+  describe '#destroy' do
     context 'logged as admin' do
       before do
         login_as_user(admin)

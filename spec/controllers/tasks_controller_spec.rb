@@ -16,7 +16,6 @@ RSpec.describe TasksController, type: :controller do
   let(:second_report_task1) { create(:task, tags: [tag]) }
   let(:second_report_task2) { create(:task, tags: [tag]) }
 
-
   let!(:first_user_report) { create(:report, user: first_user, tasks: [first_report_task1, first_report_task2]) }
   let!(:second_user_report) { create(:report, user: second_user, tasks: [second_report_task1, second_report_task2]) }
 
