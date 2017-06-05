@@ -4,12 +4,6 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[edit update destroy]
 
   after_action :verify_authorized
-  after_action :verify_policy_scoped, only: :index
-
-  def index
-    authorize Task
-    @tasks = policy_scope(Task)
-  end
 
   def show
     @task = Task.includes(comments: [:user, :commentable]).find(params[:id])

@@ -1,7 +1,5 @@
 FactoryGirl.define do
   factory :comment do
-    user nil
-    body "MyText"
-    commentable nil
+    sequence(:body) { Faker::Lorem.sentence }
   end
 end

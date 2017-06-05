@@ -18,7 +18,7 @@ class TaskPolicy < ApplicationPolicy
   end
 
   def destroy?
-    can_be_edited? && record.author == user
+    can_be_edited? && (record.author == user || user.is_admin?)
   end
 
   def scope
