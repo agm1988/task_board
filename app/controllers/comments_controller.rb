@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :find_commentable, only: [:create, :destroy]
+  before_action :find_commentable, only: %i[create destroy]
 
   after_action :verify_authorized
 

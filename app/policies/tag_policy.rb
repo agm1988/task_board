@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 class TagPolicy < ApplicationPolicy
   def permitted_attributes
-    if user.is_admin?
-      [:name]
-    end
+    %i[name] if user.is_admin?
   end
 
   def index?

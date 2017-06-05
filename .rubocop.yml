@@ -1,0 +1,49 @@
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+    - 'app/controllers/users/*'
+    - 'app/views/**/*'
+    - 'test/**/*'
+    - 'config/**/*'
+    - 'coverage/**/*'
+    - 'Gemfile'
+    - 'Capfile'
+    - 'Rakefile'
+    - 'stubs/**/*'
+    - 'config.ru'
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/LambdaCall:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 23
+
+Metrics/ClassLength:
+  CountComments: false  # count full line comments?
+  Max: 120
+
+Metrics/ModuleLength:
+  CountComments: false  # count full line comments?
+  Max: 120
+
+Metrics/PerceivedComplexity:
+  Max: 12

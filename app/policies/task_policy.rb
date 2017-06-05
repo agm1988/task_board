@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class TaskPolicy < ApplicationPolicy
   def permitted_attributes
-    [:title, :description, :status]
+    %i[title description status]
   end
 
   def show?

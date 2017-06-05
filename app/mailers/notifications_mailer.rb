@@ -1,14 +1,11 @@
+# frozen_string_literal: true
+
 class NotificationsMailer < ApplicationMailer
   helper NotificationsMailerHelper
 
   # TODO: in env variables or in secrets.yml
-  ADMIN_EMAILS = ENV['admin_emails'] || %w(admin@admin.com).freeze
+  ADMIN_EMAILS = ENV['admin_emails'] || %w[admin@admin.com].freeze
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.notifications_mailer.report_reported.subject
-  #
   def report_reported(report_id)
     @report = Report.includes(:tasks, :user).find(report_id)
     @user = @report.user

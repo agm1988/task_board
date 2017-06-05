@@ -59,6 +59,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -69,4 +70,6 @@ group :development do
   gem 'spring'
 
   gem "letter_opener"
+  gem 'rubocop', require: false
+  gem 'bullet'
 end

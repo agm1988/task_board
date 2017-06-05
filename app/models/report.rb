@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 class Report < ActiveRecord::Base
   include AASM
+
+  REPORT_STATUSES = %i[draft reported].freeze
 
   belongs_to :user
   # maybe do not destroy dependent records?
@@ -8,7 +12,7 @@ class Report < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :task_comments, through: :tasks, source: :comments
 
-  enum status: [:draft, :reported]
+  enum status: REPORT_STATUSES
 
   accepts_nested_attributes_for :tasks, reject_if: :all_blank, allow_destroy: true
 

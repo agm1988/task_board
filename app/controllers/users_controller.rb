@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
   before_action :allow_without_password, only: [:update]
 
   after_action :verify_authorized
@@ -75,15 +77,16 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
   end
 
   def allow_without_password
-    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-      params[:user].delete(:password)
-      params[:user].delete(:password_confirmation)
-    end
+    return unless params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+
+    params[:user].delete(:password)
+    params[:user].delete(:password_confirmation)
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Maybe
   class None
     attr_reader :value
