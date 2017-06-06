@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: 'np-reply@taskboard.com'
+  DEFAULT_FROM_EMAIL = ENV['FROM_DEFAULT_EMAIL'] || 'no-replay@taskboard.com'
+
+  default from: DEFAULT_FROM_EMAIL
   layout 'mailer'
 end
