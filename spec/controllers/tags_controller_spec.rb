@@ -17,8 +17,9 @@ RSpec.describe TagsController, type: :controller do
         get :index
       end
 
+      it_behaves_like 'has success response'
+
       it 'returns a success response' do
-        expect(response).to be_success
         expect(assigns(:tags)).to match_array([first_tag, second_tag])
       end
     end
@@ -30,8 +31,9 @@ RSpec.describe TagsController, type: :controller do
         get :index
       end
 
+      it_behaves_like 'has success response'
+
       it 'returns a success response' do
-        expect(response).to be_success
         expect(assigns(:tags)).to match_array([first_tag, second_tag])
       end
     end

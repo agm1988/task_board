@@ -15,8 +15,9 @@ RSpec.describe UsersController, type: :controller do
         get :index
       end
 
+      it_behaves_like 'has success response'
+
       it 'returns a success response' do
-        expect(response).to be_success
         expect(assigns(:users)).to match_array([admin, first_user, second_user])
       end
     end
@@ -28,8 +29,9 @@ RSpec.describe UsersController, type: :controller do
         get :index
       end
 
+      it_behaves_like 'has success response'
+
       it 'returns a success response' do
-        expect(response).to be_success
         expect(assigns(:users)).to match_array([first_user])
       end
     end
@@ -40,6 +42,8 @@ RSpec.describe UsersController, type: :controller do
       before do
         login_as_user(admin)
       end
+
+      it_behaves_like 'has success response'
 
       specify 'shows own record' do
         get :show, id: admin.id

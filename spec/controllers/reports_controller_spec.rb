@@ -34,8 +34,9 @@ RSpec.describe ReportsController, type: :controller do
         get :index
       end
 
+      it_behaves_like 'has success response'
+
       it 'returns a success response' do
-        expect(response).to be_success
         expect(assigns(:reports)).to match_array([draft_report, draft_report2, reported_report])
       end
     end
@@ -47,8 +48,9 @@ RSpec.describe ReportsController, type: :controller do
         get :index
       end
 
+      it_behaves_like 'has success response'
+
       it 'returns a success response' do
-        expect(response).to be_success
         expect(assigns(:reports)).to match_array([draft_report, draft_report2, reported_report])
       end
     end
