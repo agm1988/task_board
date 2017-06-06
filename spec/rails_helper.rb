@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'simplecov'
 require "pundit/rspec"
+require 'aasm/rspec'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
