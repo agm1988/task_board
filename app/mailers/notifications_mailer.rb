@@ -4,7 +4,7 @@ class NotificationsMailer < ApplicationMailer
   helper NotificationsMailerHelper
 
   # TODO: in env variables or in secrets.yml
-  ADMIN_EMAILS = ENV['admin_emails'] || %w[admin@admin.com].freeze
+  ADMIN_EMAILS = ENV['ADMIN_EMAILS'] || %w[admin@admin.com].freeze
 
   def report_reported(report_id)
     @report = Report.includes(:tasks, :user).find(report_id)

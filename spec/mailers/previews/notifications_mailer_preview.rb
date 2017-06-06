@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Preview all emails at http://localhost:3000/rails/mailers/notifications_mailer
 class NotificationsMailerPreview < ActionMailer::Preview
 
@@ -5,5 +7,4 @@ class NotificationsMailerPreview < ActionMailer::Preview
   def report_reported
     NotificationsMailer.report_reported
   end
-
 end
