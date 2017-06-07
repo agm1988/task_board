@@ -1,6 +1,4 @@
 $(function() {
-  console.log( "ready!" );
-
   addSelect2ToElement('select.task-tags-select');
 
   $('#report-form').on('cocoon:after-insert', function() {
@@ -8,10 +6,27 @@ $(function() {
   });
 
   function addSelect2ToElement(element) {
-     //TODO: add AJAX call to fetch data
     $(element).select2({
-      theme: 'bootstrap',
-      language: 'ru'
+      ajax: {
+        url: '/tags',
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            by_name: params.term
+          };
+        },
+        processResults: function (data, params) {
+          return {
+            results: $.map( data, function( el, i ) {
+              return { id: el['id'], text: el['name'] }
+            })
+        };
+        },
+        cache: true
+      },
+      escapeMarkup: function (markup) { return markup; }
+      //minimumInputLength: 1
     });
   }
 });

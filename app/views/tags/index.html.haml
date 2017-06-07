@@ -9,6 +9,8 @@
       %th=t '.actions'
   %tbody
     = render @tags
+= paginate @tags, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-small pagination-centered'
 
-- if policy(Tag).new?
-  = link_to t('.new'), new_tag_path, class: 'btn btn-primary'
+.row
+  - if policy(Tag).new?
+    = link_to t('.new'), new_tag_path, class: 'btn btn-primary'

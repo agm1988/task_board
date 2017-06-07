@@ -37,6 +37,6 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.includes(comments: [:user, :commentable]).find(params[:id])
+    @task = Task.find(params[:id])
   end
 end

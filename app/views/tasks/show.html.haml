@@ -14,6 +14,7 @@
   %br
   -## TODO: move to presenter
   = t("enums.task.status.#{@task.status}")
+= render 'tags_block', task: @task
 
 %p= link_to(t('.back_to_report'), report_path(id: @task.report_id))
 

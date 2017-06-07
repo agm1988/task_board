@@ -37,6 +37,9 @@ gem "pundit"
 gem "aasm"
 gem "sidekiq"
 gem "sidekiq-scheduler"
+gem 'has_scope'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 # gem 'sinatra', require: nil
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
