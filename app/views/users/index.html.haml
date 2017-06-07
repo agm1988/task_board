@@ -15,4 +15,7 @@
   %tbody
     = render @users
 
-= link_to t('.new'), new_user_path, class: 'btn btn-primary'
+= paginate @users, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-small pagination-centered'
+
+.row
+  = link_to t('.new'), new_user_path, class: 'btn btn-primary'
