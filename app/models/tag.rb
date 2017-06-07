@@ -7,4 +7,6 @@ class Tag < ActiveRecord::Base
   has_many :tasks, through: :taggings
 
   validates :name, presence: true, uniqueness: true
+
+  scope :by_name, ->(name) { where('name ilike ?', "%#{name}%") }
 end

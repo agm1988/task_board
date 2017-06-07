@@ -2,7 +2,7 @@
 
 class TaskPolicy < ApplicationPolicy
   def permitted_attributes
-    %i[title description status]
+    [:title, :description, :status, tag_ids: []]
   end
 
   def show?
