@@ -8,3 +8,7 @@ ru:
       title: Редактировать Тег
     create:
       title: Создать Тег
+    new:
+      title: Создать тег
+    show:
+      title: Просмотр

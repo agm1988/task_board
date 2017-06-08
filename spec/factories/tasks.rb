@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :task do
-    title 'MyString'
-    description 'MyText'
-    tags { build_list :tag, 2 }
+    sequence(:title) { Faker::Lorem.sentence(4) }
+    sequence(:description) { Faker::Lorem.sentence(10) }
+    tags { build_list :tag, rand(1..2) }
   end
 end

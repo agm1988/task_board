@@ -7,5 +7,5 @@
   include_blank: false
   = f.association :tags, collection: Tag.all, input_html: { class: 'task-tags-select', multiple: true }
 
-  = f.button :submit, :class => 'btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn btn-default'
+  = f.button :submit, class: 'btn-primary'
+  = link_to t('cancel'), users_path, class: 'btn btn-default'

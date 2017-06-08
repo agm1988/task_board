@@ -1,4 +1,4 @@
-= simple_form_for @report, :html => { :class => 'form-horizontal', id: 'report-form' } do |f|
+= simple_form_for @report, html: { class: 'form-horizontal', id: 'report-form' } do |f|
   = f.error_notification
 
   = f.input :user_id, as: :hidden, input_html: { value: current_user.id }
@@ -11,5 +11,5 @@
     .links
       = link_to_add_association 'add task', f, :tasks, { class: 'btn-sm btn-success' }
 
-  = f.button :submit, :class => 'btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), reports_path, :class => 'btn btn-default'
+  = f.button :submit, class: 'btn-primary'
+  = link_to t('cancel'), reports_path, class: 'btn btn-default'
