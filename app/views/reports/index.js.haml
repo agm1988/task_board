@@ -1,0 +1,8 @@
+$('#reports_table_body').empty();
+$('#reports_pagination').empty();
+- if @reports.present?
+  $('#reports_table_body').
+  append("#{ escape_javascript(render partial: 'report', collection: @reports) }");
+
+  $('#reports_pagination').
+  append("#{ escape_javascript(paginate @reports, remote: true) }");

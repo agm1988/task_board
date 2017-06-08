@@ -1,3 +1,5 @@
+= render 'search_form'
+
 .page-header
   %h1=t '.title'
 %table.table.table-striped
@@ -9,9 +11,11 @@
       %th= Report.human_attribute_name(:status)
       %th= Report.human_attribute_name(:created_at)
       %th=t '.actions'
-  %tbody
+  %tbody#reports_table_body
     = render @reports
 
-= paginate @reports, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-small pagination-centered'
+#reports_pagination
+  = paginate @reports, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-small pagination-centered'
+
 .row
   = link_to t('.new'), new_report_path, class: 'btn btn-primary'
