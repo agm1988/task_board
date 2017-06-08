@@ -1,6 +1,6 @@
-= simple_form_for @tag, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @tag, html: { class: 'form-horizontal' } do |f|
   = f.error_notification
 
   = f.input :name
-  = f.button :submit, :class => 'btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), tags_path, :class => 'btn btn-default'
+  = f.button :submit, class: 'btn-primary'
+  = link_to t('cancel'), tags_path, class: 'btn btn-default'

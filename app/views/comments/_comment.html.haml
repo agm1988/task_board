@@ -1,7 +1,7 @@
--## TODO: use anchor in emails to show new comment
 .comment.well{id: "comment_#{comment.id}"}
-  %p.strong
-    = comment.user
+  %p
+    %strong
+      = comment.user
   %p
     = comment.body
   %p.pull-right

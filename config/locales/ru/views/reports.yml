@@ -11,3 +11,5 @@ ru:
       title: Просмотр отчета
       form_report: Сформировать отчет
       report_status_title: Статус отчета
+    new:
+      title: Создать отчет
