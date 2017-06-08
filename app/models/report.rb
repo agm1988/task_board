@@ -18,6 +18,14 @@ class Report < ActiveRecord::Base
 
   validates :title, :tasks, :user, presence: true
 
+  scope :by_search, (lambda do |term|
+    eager_load(:user)
+      .where("reports.title ilike :term OR \
+              users.first_name ilike :term OR \
+              users.last_name ilike :term OR \
+              users.nickname ilike :term", term: "%#{term}%")
+  end)
+
   aasm column: :status, enum: true do
     state :draft, initial: true
     state :reported

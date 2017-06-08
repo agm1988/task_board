@@ -6,9 +6,11 @@ class ReportsController < ApplicationController
   after_action :verify_authorized
   after_action :verify_policy_scoped, only: :index
 
+  has_scope :by_search, default: '', allow_blank: true, only: :index
+
   def index
     authorize Report
-    @reports = policy_scope(Report).eager_load(:user).page(params[:page])
+    @reports = apply_scopes(policy_scope(Report), params).page(params[:page])
   end
 
   def show

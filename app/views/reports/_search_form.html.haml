@@ -1,0 +1,3 @@
+= form_tag(reports_path, method: :get, remote: true, id: 'report_search_form') do
+  = text_field_tag :by_search, params[:by_search], placeholder: 'Search'
+  = submit_tag 'Search', name: 'search'
