@@ -3,7 +3,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy mark_as_reported]
 
-  after_action :verify_authorized
+  after_action :verify_authorized, except: :add_report
   after_action :verify_policy_scoped, only: :index
 
   has_scope :by_search, default: '', allow_blank: true, only: :index
@@ -36,6 +36,7 @@ class ReportsController < ApplicationController
     @report = Report.new(permitted_attributes(Report))
 
     if @report.save
+      Publish::ReportService.run(@report)
       redirect_to @report, notice: 'Report was successfully created.'
     else
       render :new
@@ -69,6 +70,11 @@ class ReportsController < ApplicationController
     end
 
     redirect_to @report
+  end
+
+  # TODO: use react
+  def add_report
+    @report = Report.find(params[:report_id])
   end
 
   private

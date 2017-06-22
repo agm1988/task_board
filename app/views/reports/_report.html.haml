@@ -1,4 +1,4 @@
-%tr
+%tr{ class: (local_assigns[:need_highlight] ? 'success' : '') }
   %td= report.id
   %td= report.user
   %td= link_to(report.title, report_path(report))

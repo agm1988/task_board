@@ -1,28 +1,18 @@
-== README
+Description :
+ruby 2.3.3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Preparings:
+1. bundle install
+2. rake db:create
+3. rake db:migrate
+4. rake db:seed
 
-Things you may want to cover:
+### Don't forget to add all appropriates for .yml.example files, like if you see secret.yml.example - create real file with same keys/options (secret.yml)
 
-* Ruby version
+- database.yml.example
+- secrets.yml.example
+- sidekiq.yml.example
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Launch servers:
+- rackup faye.ru -s thin -E production (pub/sub needed for dynamically add newly generated reports)
+- rails server

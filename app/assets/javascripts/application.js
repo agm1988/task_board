@@ -17,4 +17,5 @@
 //= require select2
 ////= require select2-full
 //= require select2_locale_ru
+//= require faye
 //= require_tree .

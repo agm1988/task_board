@@ -1,0 +1,2 @@
+- if @report.present?
+  if($('#reports_table_body').length) {$('#reports_table_body').prepend("#{ escape_javascript(render partial: @report, locals: { need_highlight: true }) }");};
