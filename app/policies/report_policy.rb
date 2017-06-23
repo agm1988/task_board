@@ -23,7 +23,8 @@ class ReportPolicy < ApplicationPolicy
     # admin can do everything, almost :)
     # user can create only one report in draft status.
     # Submit report, than create next
-    user.is_admin? || user.reports.draft.none?
+    # user.is_admin? || user.reports.draft.none?
+    true
   end
 
   def new?
