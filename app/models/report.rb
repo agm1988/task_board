@@ -26,6 +26,8 @@ class Report < ActiveRecord::Base
               users.nickname ilike :term", term: "%#{term}%")
   end)
 
+  scope :by_user, -> (user_id) { where(user_id: user_id) }
+
   aasm column: :status, enum: true do
     state :draft, initial: true
     state :reported

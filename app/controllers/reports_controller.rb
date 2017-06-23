@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
   after_action :verify_policy_scoped, only: :index
 
   has_scope :by_search, default: '', allow_blank: true, only: :index
+  has_scope :by_user, only: :index
 
   def index
     authorize Report
