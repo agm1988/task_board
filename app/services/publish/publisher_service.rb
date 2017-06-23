@@ -8,9 +8,12 @@ module Publish
     def self.run(channel, data = nil, &block)
       message_data = block_given? ? capture(&block) : data
 
-      message = { channel: channel, data: message_data, ext: { auth_token: FAYE_TOKEN }}
+      message = { channel: channel, data: message_data, ext: { auth_token: FAYE_TOKEN } }
       uri = URI.parse(FAYE_URL)
       Net::HTTP.post_form(uri, message: message.to_json)
+    rescue => _e
+      # TODO: log connection errors
+      false
     end
   end
 end

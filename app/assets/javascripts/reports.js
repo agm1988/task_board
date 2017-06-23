@@ -10,19 +10,22 @@ $(function() {
   var doneTypingInterval = 1000;  //time in ms (2 seconds)
 
   //on keyup, start the countdown
-  $('#report_search_form').on('keyup', function(e){
-    console.log('type');
-    var term = e.target.value;
+  $('#report_search_form').on('keyup change', function(e){
+    var form = this;
+    //console.log(this);
+    //console.log('type');
+    //var term = e.target.value;
     clearTimeout(typingTimer);
-    typingTimer = setTimeout(function() { searchReport(term) }, doneTypingInterval);
+    ////typingTimer = setTimeout(function() { searchReport(term, user_id) }, doneTypingInterval);
+    typingTimer = setTimeout(function() { $(form).submit(); }, doneTypingInterval);
   });
 
-  function searchReport(term) {
+  function searchReport(term, user_id) {
     console.log('search');
     $.ajax({
       url: '/reports',
       timeout: 9000,
-      data: { by_search: term },
+      data: { by_search: term, by_user: user_id },
       dataType: 'script',
       error: function(jqXHR, textStatus, errorThrown){
         console.log(textStatus);
