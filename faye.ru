@@ -11,20 +11,22 @@ FAYE_TOKEN = settings['production']['faye_token']
 
 class ServerAuth
   def incoming(message, callback)
-    if message['channel'] !~ %r{^/meta/}
-      if message['ext']['auth_token'] != FAYE_TOKEN
-        message['error'] = 'Invalid authentication token'
-      end
-    end
+    message['error'] = 'Invalid authentication token' if invalid_meta?
+
     callback.call(message)
   end
 
   # IMPORTANT: clear out the auth token so it is not leaked to the client
   def outgoing(message, callback)
-    if message['ext'] && message['ext']['auth_token']
-      message['ext'] = {}
-    end
+    message['ext'] = {} if message['ext'] && message['ext']['auth_token']
+
     callback.call(message)
+  end
+
+  private
+
+  def invalid_meta?
+    message['channel'] !~ %r{^/meta/} && message['ext']['auth_token'] != FAYE_TOKEN
   end
 end
 
